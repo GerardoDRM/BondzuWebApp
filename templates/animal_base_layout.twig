@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Bondzu | {% block title %} {% endblock title %}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> {% block style %} {% endblock style %}
+
+  <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="/static/js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+  {% endblock head %}
+
+  <style>
+    #feedback {
+      padding: 0px 50px 0;
+      color: #fff;
+      height: 80px;
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 99;
+      transform: translateY(-100px);
+    }
+
+    #feedback.success {
+      transform: translateY(-100px);
+      background: #53bbb4;
+      -webkit-animation: feedback-in .3s ease-in-out forwards, feedback-out .3s ease-in-out 5s forwards;
+      -moz-animation: feedback-in .3s ease-in-out forwards, feedback-out .3s ease-in-out 5s forwards;
+      animation: feedback-in .3s ease-in-out forwards, feedback-out .3s ease-in-out 5s forwards;
+    }
+
+    #feedback.fail {
+      transform: translateY(-100px);
+      background: #e15258;
+      -webkit-animation: feedback-in .3s ease-in-out forwards;
+      -moz-animation: feedback-in .3s ease-in-out forwards;
+      animation: feedback-in .3s ease-in-out forwards;
+    }
+
+    #feedback.dismissed {
+      transform: translateY(0);
+      -webkit-animation: feedback-out .3s ease-in-out forwards;
+      -moz-animation: feedback-out .3s ease-in-out forwards;
+      animation: feedback-out .3s ease-in-out forwards;
+    }
+    /*
+    ANIMATION
+    */
+
+    @-webkit-keyframes feedback-in {
+      0% {
+        transform: translateY(-100px);
+      }
+      80% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(0);
+        padding-top: 0;
+      }
+    }
+
+    @-moz-keyframes feedback-in {
+      0% {
+        transform: translateY(-100px);
+      }
+      80% {
+        transform: translateY(0);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(0);
+        padding-top: 0;
+      }
+    }
+
+    @keyframes feedback-in {
+      0% {
+        transform: translateY(-100px);
+      }
+      80% {
+        transform: translateY(0);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(0);
+        padding-top: 0;
+      }
+    }
+    /* out*/
+
+    @-webkit-keyframes feedback-out {
+      0% {
+        transform: translateY(0);
+      }
+      20% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(-100px);
+      }
+    }
+
+    @-moz-keyframes feedback-out {
+      0% {
+        transform: translateY(0);
+      }
+      20% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(-100px);
+      }
+    }
+
+    @keyframes feedback-out {
+      0% {
+        transform: translateY(0);
+      }
+      20% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(-100px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  {% if flash is not empty %} {% for key, msg in flash %}
+  <div id="feedback" class="{{key}}">
+    <a class="dismiss">Dismiss</a>
+    <!-- <h3>{{ key }}!</h3> -->
+    <p>{{ msg }} TEST</p>
+  </div>
+  {% endfor %} {% endif %}
+
+
+  <div class="container-fluid" style="height:100%;">
+    <div class="row" style="height:100%;">
+      <div class="col-xs-2 col-sm-1" style="height:100%; padding:0; z-index:1;">
+        <div id="dl-menu" class="dl-menuwrapper">
+          <ul class="dl-menu">
+            <li class="user-icon" style="margin: 50% 0;">
+              <img src="{{user.photo}}">
+              <h3>{{user.name}}</h3>
+            </li>
+            <li>
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-467 270.3 24 20.4" style="enable-background:new -467 270.3 24 20.4;" xml:space="preserve" class="menu-icons">
+                <path class="icon-menu--fill" d="M-457.4,290.7v-7.2h4.8v7.2h6v-9.6h3.6l-12-10.8l-12,10.8h3.6v9.6H-457.4z" />
+                <path style="fill:none" d="M-467,269h24v24h-24V269z" />
+              </svg>
+              <a href="{{ urlFor('catalogue') }}">Home</a>
+            </li>
+            <li>
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-467 261.9 24 28.9" style="enable-background:new -467 261.9 24 28.9;" xml:space="preserve" class="menu-icons">
+                <path style="fill:none" d="M-541,298h48v48h-48V298z M-467,269h24v24h-24V269z M-467,269h24v24h-24V269z" />
+                <path class="icon-menu--fill" d="M-449.9,276.1c-3.6-3.7-5.7-0.7-5.9-0.1c-0.2,0.5-1.9,2.6-3.6,3.3c-1.2,0.5-3.5,1.4-4.9,2.1
+              		c-1.7,0.8-1.1,4.3,0.8,6.5c2.2,2.5,5.7-4.1,8.8-2c1,0.7,1.2,8.4,6.2,2.9c1.2-1.3,0.7-2.1-0.1-4.8
+              		C-449,281.8-447.3,278.8-449.9,276.1z M-444.2,274.2c0-0.2-0.1-0.4-0.1-0.7c0-0.6-0.4-1.3,0.8-2.2c0.1-0.1-0.6,0-1.1,0.4c-0.2,0.2-0.5,0.5-0.7,0.9
+                		c-0.3-0.2-0.5-0.1-0.5,0.4c0,2.4-0.1,2.8-1,3.7c-0.8,0.8-0.5,2.4-0.5,3.9c0,0.7-0.5,4.9,1.8,3.4
+                		C-441.9,281.5-442.9,276.8-444.2,274.2z M-462.3,275.4c-1-3.1,1.2-7.3-0.8-6.9c-0.1-0.5-0.2-1.2,0.8-1.9c0.1-0.1-0.6,0-1.1,0.4c-0.4,0.3-1,1.3-1.1,2.1
+                  		c-0.2,0.1-0.5,0.3-0.8,0.5c-1,0.6-2.5,5.5-1.2,8.4c1.3,2.8,2.8,2.2,3.9,1.7C-460.9,278.7-461.1,278.9-462.3,275.4z M-456.5,263.7c-0.1-0.5-0.1-1.1,0.8-1.8c0.1-0.1-0.6,0-1.1,0.4c-0.2,0.2-0.5,0.6-0.8,1.1
+                    		c-1,0.2-1.8,1.6-2.8,4.1c-1.6,3.5-1.1,11.1,1.8,10c1.5-0.6,1-2.6,3.8-4.6C-451.9,271-455,264.8-456.5,263.7z M-450.1,264.5c0-0.1,0-0.2,0-0.3c0-0.6-0.4-1.3,0.8-2.2c0.1-0.1-0.6,0-1.1,0.4c-0.3,0.2-0.7,0.8-0.9,1.4
+                      		c-0.5-0.1-1.1,0-1.7,0.3c-0.8,0.5-1.4,0.8-0.9,1.5c1.3,1.8,1.8,4.3,1.5,5.9c-0.1,0.7,0.1,1.3,0.6,1.8c1.6,1.4,4.8,3.7,5.1,0.6
+                      		C-446.7,272.1-447.9,266.5-450.1,264.5z" />
+              </svg>
+              <a href="#" id="btn-adoptions">Adoptions</a>
+            </li>
+            <li>
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-467 272.2 24 18.5" style="enable-background:new -467 272.2 24 18.5;" xml:space="preserve" class="menu-icons">
+                <path style="fill:none" d="M-541,298h48v48h-48V298z M-467,269h24v24h-24V269z M-467,269h24v24h-24V269z" />
+                <path class="icon-menu--fill" d="M-453.9,281h7.6v1.6h-7.6V281z M-453.9,278.2h7.6v1.6h-7.6V278.2z M-453.9,283.7h7.6v1.6h-7.6V283.7z M-445.2,272.2h-19.6
+              	c-1.2,0-2.2,1-2.2,2.2v14.1c0,1.2,1,2.2,2.2,2.2h19.6c1.2,0,2.2-1,2.2-2.2v-14.1C-443,273.2-444,272.2-445.2,272.2z M-445.2,288.6
+              	h-9.8v-14.1h9.8V288.6z" />
+              </svg>
+              <a href="#" id="btn-transactions">Recent Activity</a>
+            </li>
+            <li>
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-467 271.4 24 19.2" style="enable-background:new -467 271.4 24 19.2;" xml:space="preserve" class="menu-icons">
+                <path style="fill:none" d="M-467,269h24v24h-24V269z" />
+                <path class="icon-menu--fill" d="M-445.4,271.4h-19.2c-1.3,0-2.4,1.1-2.4,2.4l0,14.4c0,1.3,1.1,2.4,2.4,2.4h19.2c1.3,0,2.4-1.1,2.4-2.4v-14.4
+              	C-443,272.5-444.1,271.4-445.4,271.4z M-445.4,288.2h-19.2V281h19.2V288.2z M-445.4,276.2h-19.2v-2.4h19.2V276.2z" />
+              </svg>
+              <a href="#" id="payments">Payments</a>
+            </li>
+            <li>
+              <a href="{{ urlFor('logout') }}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-10 col-sm-11 no-padding" style="height:100%; padding:0">
+        {% block content %} {% endblock content %}
+      </div>
+    </div>
+
+    <!-- Open modal Adoptions/Activity-->
+    <div class="modalDialog" id="modal-adoptions">
+      <div class="dialog adoptions">
+        <div class=headers>
+          <h2>Adoptions</h2>
+        </div>
+        <div class="container-fluid">
+          {% for adoptions in user.animals %}
+          <a href="{{ urlFor('animal', {" id ": adoptions.id}) }}" style="color:black;">
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="photo-adoptions" style="background: url('{{ adoptions.photo }}') no-repeat center; background-size:cover;"></div>
+              </div>
+              <div class="col-sm-10" style="border-bottom: 1px solid #ccc;">
+                <h2>{{ adoptions.name }}</h2>
+                <p>{{ adoptions.specie }}</p>
+              </div>
+            </div>
+          </a>
+          {% endfor%}
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Open modal Adoptions/Activity-->
+    <div class="modalDialog" id="modal-transactions">
+      <div class="dialog adoptions">
+        <div class=headers>
+          <h2>Transactions</h2>
+        </div>
+        <div class="container-fluid">
+          {% for transaction in user.transactions %}
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="photo-adoptions" style="background: url('{{ transaction.photo }}') no-repeat center; background-size:cover;"></div>
+            </div>
+            <div class="col-sm-8" style="border-bottom: 1px solid #ccc;">
+              <h2>{{ transaction.title }}</h2>
+              <p>{{ transaction.description }}</p>
+            </div>
+            <div class="col-sm-2">
+              <p>${{ transaction.amount }}</p>
+            </div>
+          </div>
+          {% endfor%}
+        </div>
+      </div>
+    </div>
+
+    <!-- Open modal Video-->
+    <div class="modalDialog" id="modal-youtube">
+      <div class="dialog adoptions">
+        <div class=headers>
+          <h2>Video</h2>
+        </div>
+        <div class="container-fluid" style="text-align:center;">
+          <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+          <iframe id="player" frameborder="0" allowfullscreen="1" title="YouTube video player" width="640" height="390" src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&amp;origin=http%3A%2F%2Flocalhost%3A3000"></iframe>
+          <!-- <div id="player"></div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Open modal Card-->
+    <div class="modalDialog" id="modal-card">
+      <div class="dialog adoptions">
+        <div class=headers>
+          <h2>Card Details</h2>
+        </div>
+        <div class="container-fluid" style="text-align:center;">
+          <form action="" method="post" class="form_card">
+            <fieldset>
+              <input class="card_input" name="name" type="text" placeholder="First Name">
+              <input class="card_input" name="lastname" type="text" placeholder="Last Name">
+              <input class="card_input" name="card_number" type="number" placeholder="Card Number">
+            </fieldset>
+            <fieldset>
+              <input class="card_input" name="month" type="number" placeholder="MM">
+              <input class="card_input" name="year" type="number" placeholder="YY">
+              <input class="card_input" name="cvc" type="number" placeholder="CVC">
+            </fieldset>
+            <a href="#" class="btn-access facebook">Save </a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- /.container-fluid -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <script>
+    // Check when document is ready
+    $(document).ready(function($) {
+      // Initialize Boopstrap Carousel
+      $('#myCarousel').carousel();
+
+      // Tabs which are used on navigation bar
+      var tabItems = $('.cd-tabs-navigation a'),
+        tabContentWrapper = $('.cd-tabs-content');
+
+      // This action will change the content for each tab
+      tabItems.on('click', function(event) {
+        var selectedItem = $(this);
+        if (!selectedItem.hasClass('selected')) {
+          var selectedTab = selectedItem.data('content'),
+            selectedContent = tabContentWrapper.find('li[data-content="' + selectedTab + '"]');
+          tabItems.removeClass('selected');
+          selectedItem.addClass('selected');
+          selectedContent.addClass('selected').siblings('li').removeClass('selected');
+        }
+      });
+
+      // Video frame
+      var thumbnail = $('.thumbnail');
+      thumbnail.click(function(e) {
+        e.preventDefault();
+        $("#modal-youtube").css({
+          opacity: 1,
+          "pointer-events": "auto"
+        });
+
+        $('#player').attr('src', "https://www.youtube.com/embed/" + $(this)[0].id + "?enablejsapi=1&amp;origin=http%3A%2F%2Flocalhost%3A3000");
+
+      });
+      // Close Modal Dialog
+      $('#modal-youtube').click(function() {
+        $("#modal-youtube").css({
+          opacity: 0,
+          "pointer-events": "none"
+        });
+      });
+
+
+      // Open Modal Dialog
+      $('.cams').click(function(e) {
+        e.preventDefault();
+        $('#ivideo').attr('src', $('.cams input[type=hidden]').val());
+        $("#video-frame").css({
+          opacity: 1,
+          "pointer-events": "auto"
+        });
+      });
+      // Close Modal Dialog
+      $('#video-frame').click(function() {
+        $("#video-frame").css({
+          opacity: 0,
+          "pointer-events": "none"
+        });
+      });
+      // Check false propagation
+      $('.dialog').click(function(e) {
+        e.stopPropagation();
+      });
+
+      // Open moda Gallery
+      $('.mini-gallery').click(function(e) {
+        e.preventDefault();
+        $("#gallery-frame").css({
+          opacity: 1,
+          "pointer-events": "auto"
+        });
+      });
+      // Close Modal Dialog
+      $('#gallery-frame').click(function() {
+        $("#gallery-frame").css({
+          opacity: 0,
+          "pointer-events": "none"
+        });
+      });
+
+
+      $('#btn-adoptions').click(function(e) {
+        e.preventDefault();
+        $("#modal-adoptions").css({
+          opacity: 1,
+          "pointer-events": "auto"
+        });
+      });
+      // Close Modal Dialog
+      $('#modal-adoptions').click(function() {
+        $("#modal-adoptions").css({
+          opacity: 0,
+          "pointer-events": "none"
+        });
+      });
+
+
+      $('#btn-transactions').click(function(e) {
+        e.preventDefault();
+        $("#modal-transactions").css({
+          opacity: 1,
+          "pointer-events": "auto"
+        });
+      });
+      // Close Modal Dialog
+      $('#modal-transactions').click(function() {
+        $("#modal-transactions").css({
+          opacity: 0,
+          "pointer-events": "none"
+        });
+      });
+      // Payments content
+      $('#payments').click(function() {
+        var selectedContent = tabContentWrapper.find('li[data-content="' + "card-details" + '"]');
+        selectedContent.addClass('selected').siblings('li').removeClass('selected');
+      });
+
+      // Card details
+      $('#show-card').click(function(e) {
+        e.preventDefault();
+        $("#modal-card").css({
+          opacity: 1,
+          "pointer-events": "auto"
+        });
+      });
+      // Close Modal Dialog
+      $('#modal-card').click(function() {
+        $("#modal-card").css({
+          opacity: 0,
+          "pointer-events": "none"
+        });
+      });
+
+
+
+    });
+  </script>
+</body>
+
+<footer>
+  {% block footer %} {% endblock footer %}
+</footer>
+
+</html>

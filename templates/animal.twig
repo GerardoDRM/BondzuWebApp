@@ -1,0 +1,223 @@
+{% extends 'animal_base_layout.twig' %} {% block title %} Animal {% endblock title %} {% block style %}
+<link rel="stylesheet" href="../css/main.css">{% endblock style %} {% block content %}
+<div class="container-fluid no-padding" style="text-align=center; height:100%;">
+
+  <div class="jumbotron top-img" style="background: url('{{animal.profilePhoto}}') no-repeat center 45%; background-size:cover; height:40%">
+    <h1>{{ animal.specie}}</h1>
+  </div>
+
+  <div class="cd-tabs">
+    <nav>
+      <div class="cd-tabs-navigation">
+        <ul>
+          <div class="col-xs-3 no-padding">
+            <li>
+              <a data-content="about" class="selected" href="#0">
+                <h1>About</h1>
+              </a>
+            </li>
+          </div>
+          <div class="col-xs-3 no-padding">
+            <li>
+              <a data-content="community" href="#0">
+                <h1>Community</h1>
+              </a>
+            </li>
+          </div>
+          <div class="col-xs-3 no-padding">
+            <li>
+              <a data-content="gallery" href="#0">
+                <h1>Gallery</h1>
+              </a>
+            </li>
+          </div>
+          <div class="col-xs-3 no-padding">
+            <li>
+              <a data-content="gifts" href="#0">
+                <h1>Gifts</h1>
+              </a>
+            </li>
+          </div>
+        </ul>
+        <!-- cd-tabs-navigation -->
+      </div>
+
+    </nav>
+
+    <ul class="cd-tabs-content">
+      <li data-content="about" class="selected" id="about">
+        <div class="container" style="margin-bottom: 5%;">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card center-text">
+                <div class="row">
+                  {% for cam in animal.cameras %}
+                  <div class="col-sm-3">
+                    <a href="#" class="cams">
+                      <img src="../images/Menuicons/camera.svg" class="icon-top-bar" />
+                      <input type="hidden" value="{{cam.url}}"></input>
+                    </a>
+                    <h3>{{ cam.description }}</h3>
+                  </div>
+                  {% endfor %}
+                  <div class="col-sm-3">
+                    <div class="adopt-icon">
+                      <img src="../images/Menuicons/adoptions.svg" />
+                    </div>
+                    <h3>Adopt</h3>
+                  </div>
+                  <div class="col-sm-3">
+                    <h1>{{ animal.adopters }}</h1>
+                    <h3>Adopters</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card descriptions">
+                <h2>{{ animal.name }}</h2>
+                <p>{{ animal.about }}</p>
+                <h2>Characteristics</h2>
+                {% for charact in animal.characteristics|keys %}
+                <div class="row">
+                  <div class="col-sm-2">
+                    <h4>{{ charact }}</h4>
+                  </div>
+                  <div class="col-sm-10">
+                    <p>{{ animal.characteristics[charact]}}</p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% if animal.events %}
+            <div class="col-sm-12">
+              <div class="card descriptions">
+                <h2>Events</h2>
+                {% for event in animal.events %}
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h1>{{ event.title }}</h1>
+                    <p>{{ event.description }} </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <img src="{{event.photo}}" />
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+      <li data-content="community" id="community">
+        <div class="container" style="margin: 5% auto;">
+          {% for comment in animal.comments %}
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="photo-adoptions" style="background: url('{{ comment.user_photo }}') no-repeat center; background-size:cover;"></div>
+            </div>
+            <div class="col-sm-8">
+              <h2>{{ comment.user_name }}</h2>
+              <p> {{ comment.message }} </p>
+            </div>
+            <div class="col-sm-2">
+              <p>{{ comment.likes }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </li>
+      <li data-content="gallery" id="gallery">
+        <div class="container" style="margin: 5% auto;">
+          <div class="row">
+            {% for photo in animal.gallery %}
+            <div class="col-sm-4 mini-gallery" style="background: url('{{photo.image}}') no-repeat center; background-size:cover;"></div>
+            {% endfor %}
+          </div>
+        </div>
+      </li>
+      <li data-content="gifts" id="gifts">
+        {% for category in animal.products|keys %}
+          <h2>{{ category }}</h2>
+          <div class="row">
+            {% for product in animal.products[category] %}
+              <div class="col-sm-2">
+                <a href="#">
+                  <div class="photo-products" style="background: url('{{ product.photo }}')  no-repeat center top; background-size:cover;"></div>
+                </a>
+                <div class="card product-card" style="height: 220px;">
+                  <h3>{{ product.name }}</h3>
+                  <p>{{ product.description }}</p>
+                  <p>${{ product.amount }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </li>
+      <li data-content="card-details" id="card-details">
+        <div class="container">
+          {% for card in user.cards %}
+          <div class="row">
+            <div class="col-sm-2">
+              <img src="../images/Menuicons/payment.svg" width="50%"/>
+            </div>
+            <div class="col-sm-8">
+              <h2>*********{{ card.num }}</h2>
+              <h3>{{ card.brand }}</h3>
+            </div>
+            <div class="col-sm-2">
+              <a class="btn-card remove">-</a>
+            </div>
+            </div>
+            {% endfor %}
+          <a class="btn-card add" id="show-card">Add New Card</a>
+        </div>
+      </li>
+    </ul>
+    <!-- cd-tabs-content -->
+  </div>
+
+  <!-- Open modal -->
+  <div class="modalDialog" id="video-frame">
+    <div class="dialog">
+      <iframe id="ivideo" width="100%" height="500px" src="" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Open modal Gallery -->
+  <div class="modalDialog" id="gallery-frame">
+    <div class="dialog">
+      <!-- main slider carousel -->
+      <div class="row">
+        <div id="myCarousel" class="carousel slide">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <div style="background: url('{{animal.profilePhoto}}') no-repeat center 45%; background-size:cover; height:600px"></div>
+            </div>
+            {% for photo in animal.gallery %}
+            <div class="item">
+              <div style="background: url('{{photo.image}}') no-repeat center; background-size:cover; height: 600px;"></div>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- main slider carousel nav controls -->
+          <a class="control left" href="#myCarousel" data-slide="prev" onclick="$('#myCarousel').carousel('prev')">‹</a>
+          <a class="control right" href="#myCarousel" data-slide="next" onclick="$('#myCarousel').carousel('next')">›</a>
+        </div>
+
+      </div>
+      <!--/main slider carousel-->
+    </div>
+  </div>
+
+
+
+
+</div>
+
+</div>
+{% endblock content %}

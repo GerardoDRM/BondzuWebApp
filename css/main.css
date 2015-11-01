@@ -1,0 +1,476 @@
+/**
+  * Main SASS file gets all partials
+  * this sass file will be compiled at
+  * the beginning
+**/
+/**
+  * Variables Partial SASS
+  * This SASS file has the palette color
+  * the media queries break points and fonts attributes.
+**/
+/**
+  * Utils Partial SASS
+  * This SASS file has all the functions used
+  * on the partials.
+**/
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+/**
+  * Mixin Partial SASS
+  * This SASS file make groups of CSS declarations
+  * that are reuse throughout the site.
+**/
+/**
+  * Extend Partial SASS
+  * This SASS file has all common
+  * styles that are presented in some
+  * classes
+**/
+html, body, .dl-menuwrapper {
+  width: 100%;
+  height: 100%; }
+
+form, .cd-tabs-navigation {
+  margin: 0 auto; }
+
+.no-padding, fieldset, .dl-menuwrapper ul, .cd-tabs-navigation ul {
+  padding: 0; }
+
+.center-text, .dl-menuwrapper li, .cd-tabs-navigation a {
+  text-align: center; }
+
+.dialog {
+  position: relative;
+  z-index: 99;
+  height: auto;
+  margin: 12% auto; }
+
+/**
+  * Index Partial SASS
+  * This SASS file is the manifest on
+  * components folder
+  * !Important import order is relevant while compiling SASS
+**/
+/**
+  * BASE Partial SASS
+  * This SASS file has general components
+  * used on the app
+**/
+/*General*/
+html {
+  overflow: hidden; }
+
+.home {
+  position: fixed;
+  top: -8%;
+  width: 100%;
+  height: 120%;
+  z-index: -9999;
+  background: linear-gradient(#FF9500, transparent 50%), linear-gradient(0deg, #FF5E3A, transparent), url("../images/home/home.jpg") no-repeat center top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.pos-absolute {
+  position: absolute; }
+
+.img-logo-form {
+  margin: 5% auto;
+  text-align: center;
+  display: block; }
+
+a:hover, a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #FFF; }
+
+/**
+  * Header Partial SASS
+  * This SASS file has the header components
+  * used on the app
+**/
+/* Header */
+.nav-bar-transparent {
+  background: transparent;
+  border-color: none; }
+
+/**
+  * Index Partial SASS
+  * This SASS file is the manifest on
+  * components folder
+  * !Important import order is relevant while compiling SASS
+**/
+/**
+  * Buttons Partial SASS
+  * This SASS file has all
+  * button styles
+**/
+/* General */
+.btn-access {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 1.5em;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s;
+  -moz-transition: background-color 0.2s, -moz-transform 0.2s;
+  -o-transition: background-color 0.2s, -o-transform 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
+  width: 100%;
+  cursor: pointer;
+  padding: 15px;
+  display: block; }
+  .btn-access:hove {
+    background-color: #DA7416; }
+
+.btn-card {
+  height: 100px;
+  font-size: 1.5em;
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+  display: block; }
+
+.add {
+  width: 80%;
+  background-color: #8BC34A;
+  margin: 1em auto; }
+
+.remove {
+  width: 50px;
+  height: 50px;
+  background-color: #e15258;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%; }
+
+/**
+  * Forms Partial SASS
+  * This SASS file has all forms
+**/
+/* Form Login */
+form {
+  width: 33%; }
+
+fieldset {
+  border: none; }
+
+.form_input {
+  font-size: 1em;
+  color: #FFF;
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  -o-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  background-color: transparent;
+  width: 100%;
+  padding: 13px;
+  border: 2px solid #FFF;
+  margin-bottom: 10px;
+  outline: none; }
+  .form_input:focus {
+    border-color: #DA7416; }
+  .form_input .fail {
+    border-color: #e15258; }
+    .form_input .fail:focus {
+      border-color: #DA7416; }
+
+.form_card {
+  width: 60%; }
+  .form_card .card_input {
+    font-size: 1em;
+    color: #8a440b;
+    text-align: left;
+    font-family: "Open Sans", sans-serif;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: border-color 0.2s;
+    -moz-transition: border-color 0.2s;
+    -o-transition: border-color 0.2s;
+    transition: border-color 0.2s;
+    background-color: transparent;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-bottom: 2px solid #b7b7b7;
+    margin-bottom: 10px;
+    outline: none; }
+    .form_card .card_input:focus {
+      border-color: #DA7416; }
+    .form_card .card_input .fail {
+      border-color: #e15258; }
+      .form_card .card_input .fail:focus {
+        border-color: #DA7416; }
+
+.access {
+  background-color: transparent;
+  border-color: #FFF;
+  margin-top: 10px; }
+  .access:hover {
+    background-color: #DA7416;
+    border-color: #8a440b; }
+
+.facebook {
+  background-color: #0B5998;
+  border-color: none;
+  border: none;
+  margin-top: 34px; }
+
+.menu-icons {
+  width: 30%; }
+  .menu-icons .icon-menu--fill {
+    fill: #b7b7b7; }
+    .menu-icons .icon-menu--fill:hover {
+      fill: #DA7416; }
+
+.user-icon {
+  margin: 50% 0; }
+  .user-icon img {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    width: 50%; }
+  .user-icon h3 {
+    color: #DA7416; }
+
+.icon-top-bar {
+  width: 20%;
+  margin-top: 10%; }
+
+.adopt-icon {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #8BC34A;
+  margin: 8% auto 0; }
+  .adopt-icon img {
+    width: 60%;
+    margin-top: 10%; }
+
+/*Modal Dialog Main*/
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  -o-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  background: rgba(218, 116, 22, 0.8);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  overflow: auto; }
+
+/* Modal Dialog Login */
+.dialog {
+  width: 60%;
+  font-family: 'Open Sans', sans-serif; }
+
+.control {
+  position: absolute;
+  top: 50%;
+  font-size: 2.25em;
+  color: #FFF;
+  text-align: center;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  text-shadow: 0 1px 2px #EBEBEB;
+  opacity: .5;
+  background: #DA7416;
+  text-decoration: none; }
+  .control:hover {
+    background: #DA7416;
+    text-decoration: none; }
+
+.right {
+  right: 0;
+  left: auto; }
+
+.left {
+  right: auto;
+  left: 0; }
+
+.dl-menuwrapper {
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 2;
+  box-shadow: 10px 0 5px rgba(0, 0, 0, 0.19); }
+  .dl-menuwrapper ul {
+    background: #EBEBEB;
+    list-style: none; }
+  .dl-menuwrapper li {
+    margin: 2em 0; }
+    .dl-menuwrapper li a {
+      font-size: 1.75em;
+      color: #b7b7b7;
+      line-height: 20px;
+      font-weight: 300;
+      display: block;
+      position: relative;
+      padding: 15px 20px;
+      text-decoration: none; }
+      .dl-menuwrapper li a:hover {
+        color: #DA7416; }
+  .dl-menuwrapper .dl-menu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    -moz-transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    -o-transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
+.photo-products {
+  width: 100%;
+  height: 200px; }
+
+.cd-tabs {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 2em auto;
+  border-bottom: 4px solid tomato; }
+  .cd-tabs:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .cd-tabs nav {
+    width: 100%;
+    background-color: #DA7416;
+    box-shadow: inset 0 -2px 3px #DA7416; }
+
+.cd-tabs-navigation {
+  width: 100%;
+  height: 100px;
+  background-color: #DA7416; }
+  .cd-tabs-navigation ul {
+    width: 100%;
+    height: 100%; }
+    .cd-tabs-navigation ul li {
+      width: 100%;
+      display: inline-block; }
+  .cd-tabs-navigation a {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    color: #8a440b; }
+    .cd-tabs-navigation a:hover {
+      color: #FFF; }
+
+.no-touch .cd-tabs-navigation a:hover {
+  background-color: #DA7416; }
+
+.cd-tabs-navigation a {
+  padding-top: 15px; }
+  .cd-tabs-navigation a.selected {
+    color: #FFF; }
+  .cd-tabs-navigation a::before {
+    /* icons */
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-left: -10px;
+    background-repeat: no-repeat; }
+
+/* Tab container*/
+.cd-tabs-content {
+  background: #f3f3f4;
+  height: 60%;
+  overflow: scroll;
+  overflow-x: hidden; }
+  .cd-tabs-content li {
+    display: none;
+    padding: 1.4em; }
+    .cd-tabs-content li.selected {
+      display: block;
+      -webkit-animation: cd-fade-in 0.5s;
+      -moz-animation: cd-fade-in 0.5s;
+      animation: cd-fade-in 0.5s; }
+    .cd-tabs-content li p {
+      font-size: 1.25em;
+      color: #000;
+      font-family: "Open Sans", sans-serif;
+      line-height: 1.6;
+      margin-bottom: 2em; }
+    .cd-tabs-content li .product-card p {
+      font-size: 1em; }
+
+/* Top image */
+.top-img {
+  background: url("../images/home/home.jpg") no-repeat center top fixed;
+  background-size: cover;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  margin-bottom: -30px; }
+
+.card {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  position: relative;
+  width: 100%;
+  background: #FFF;
+  margin: -2em 0 2em;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.photo-container {
+  width: 100%;
+  height: 300px; }
+
+.descriptions {
+  padding: 2em;
+  margin-top: 2%;
+  padding-bottom: 15px; }
+  .descriptions h2 {
+    font-size: 2.5em; }
+  .descriptions h4 {
+    font-size: 1.5em; }
+  .descriptions p {
+    font-size: 1.5em; }
+
+.mini-gallery {
+  height: 300px; }
+
+.adoptions {
+  background-color: #FFF;
+  width: 50%;
+  padding: 3em; }
+
+.photo-adoptions {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; }
+
+/*# sourceMappingURL=main.css.map */

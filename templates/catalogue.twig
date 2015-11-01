@@ -1,0 +1,75 @@
+{% extends 'animal_base_layout.twig' %} {% block title %} Catalogue {% endblock title %}
+{% block style %} <link rel="stylesheet" href="css/main.css" >{% endblock style %}
+{% block content %}
+<div class="container-fluid no-padding" style="text-align=center; height:100%;">
+
+  <div class="jumbotron top-img">
+    <h1>Bondzu</h1>
+  </div>
+
+  <div class="cd-tabs">
+    <nav>
+      <div class="cd-tabs-navigation">
+        <ul>
+          <div class="col-xs-6 no-padding">
+            <li>
+              <a data-content="animalia" class="selected" href="#0">
+                <h1>Animalia</h1>
+              </a>
+            </li>
+          </div>
+          <div class="col-xs-6 no-padding">
+            <li>
+              <a data-content="videos" href="#0">
+                <h1>Videos</h1>
+              </a>
+            </li>
+          </div>
+        </ul>
+        <!-- cd-tabs-navigation -->
+      </div>
+
+    </nav>
+
+    <ul class="cd-tabs-content">
+      <li data-content="animalia" class="selected" id="animalia">
+        <div class="container-fluid">
+          <div class="row">
+            {% for animal in animals %}
+              <div class="col-sm-3">
+                <a href="{{ urlFor('animal', {"id": animal.id}) }}">
+                  <div class="photo-container" style="background: url('{{ animal.profilePhoto }}')  no-repeat center top; background-size:cover;"></div>
+                </a>
+                <div class="card" style="height: 250px;">
+                  <h4>{{ animal.species}}</h4>
+                  <h2>{{ animal.name }}</h2>
+                  <p>{{ animal.about }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </li>
+      <li data-content="videos" id="videos">
+        <div class="container-fluid">
+          <div class="row">
+            {% for video in videos %}
+              <div class="col-sm-3">
+                <a class="thumbnail" id="{{ video.id }}">
+              <div class="photo-container" style="background: url('http://img.youtube.com/vi/{{ video.id }}/hqdefault.jpg')  no-repeat center top; background-size:cover;"></div>
+            </a>
+                <div class="card" style="height: 180px;">
+                  <h2>{{ video.title}}</h4>
+                  <h3>{{ video.description }}</h2>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- cd-tabs-content -->
+  </div>
+
+</div>
+{% endblock content %}

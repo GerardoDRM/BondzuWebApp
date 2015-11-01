@@ -1,0 +1,80 @@
+/**
+  * Forms Partial SASS
+  * This SASS file has all forms
+**/
+
+/* Form Login */
+
+form {
+  width:33%;
+  @extend %margin-center;
+}
+
+fieldset {
+  @extend %no-padding;
+  border: none;
+}
+
+.form_input {
+  @include styling_wrapper_content($white, left, $base__font-size,  $font-family--primary);
+  @include border-radius(4px);
+  @include transition(border-color .2s);
+  background-color: transparent;
+  width: 100%;
+  padding: 13px;
+  border: 2px solid $white;
+  margin-bottom: 10px;
+  outline: none;
+  &:focus {
+    border-color: $primary-color;
+  }
+  .fail {
+    border-color: $warning;
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+}
+
+.form_card {
+  width: 60%;
+  .card_input {
+    @include styling_wrapper_content($primary-color-dark, left, $base__font-size,  $font-family--primary);
+    @include border-radius(4px);
+    @include transition(border-color .2s);
+    background-color: transparent;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-bottom: 2px solid $primary-gray;
+    margin-bottom: 10px;
+    outline: none;
+    &:focus {
+      border-color: $primary-color;
+    }
+    .fail {
+      border-color: $warning;
+      &:focus {
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+
+.access {
+  background-color: transparent;
+  border-color: $white;
+  margin-top: 10px;
+  &:hover {
+    background-color: $primary-color;
+    border-color: $primary-color-dark;
+  }
+}
+
+.facebook {
+  background-color: $facebook;
+  border-color: none;
+  border: none;
+  margin-top: 34px;
+}

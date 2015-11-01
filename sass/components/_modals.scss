@@ -1,0 +1,44 @@
+
+/*Modal Dialog Main*/
+.modalDialog {
+    @include position(fixed, true, 0);
+    @include transition(opacity 400ms ease-in);
+    background: $primary-color-transparent;
+    z-index: 5;
+    opacity:0;
+    pointer-events: none;
+    overflow: auto;
+}
+
+
+/* Modal Dialog Login */
+.dialog {
+    @extend %modal-dialog-pos;
+    width: 60%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.control {
+  @include position(absolute, $values: top 50%);
+  @include styling_wrapper_content($white, center, 36px);
+  @include border-radius(25px);
+  @include box(50px, 50px, $z-index: 99);
+  text-shadow: 0 1px 2px $gray;
+  opacity: .5;
+  background: $primary-color;
+  text-decoration: none;
+  &:hover {
+    background: $primary-color;
+    text-decoration: none;
+  }
+}
+
+.right {
+  right: 0;
+  left: auto;
+}
+
+.left {
+  right: auto;
+  left: 0;
+}

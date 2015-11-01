@@ -1,0 +1,43 @@
+
+
+.menu-icons {
+  width: 30%;
+  .icon-menu--fill {
+    fill: $primary-gray;
+    &:hover {
+      fill: $primary-color;
+    }
+  }
+
+}
+
+
+.user-icon {
+  margin: 50% 0;
+  img {
+    @include border-radius(50%);
+    width:50%;
+  }
+  h3 {
+    color: $primary-color;
+  }
+}
+
+.icon-top-bar {
+  width: 20%;
+  margin-top: 10%;
+}
+
+
+.adopt-icon {
+  @include border-radius(50%);
+  width: 60px;
+  height: 60px;
+  background-color: $green-bondzu;
+  margin: 8% auto 0;
+
+  img {
+    width: 60%;
+    margin-top: 10%;
+  }
+}

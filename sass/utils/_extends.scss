@@ -1,0 +1,34 @@
+/**
+  * Extend Partial SASS
+  * This SASS file has all common
+  * styles that are presented in some
+  * classes
+**/
+%complete-dimension {
+  width: 100%;
+  height: 100%;
+}
+%uppercase {
+  text-transform: uppercase;
+}
+%margin-center {
+  margin: 0 auto;
+}
+%no-padding {
+  padding: 0;
+}
+%no-margin {
+  margin: 0;
+}
+%full-height {
+  height: 100%;
+}
+%center-items {
+  text-align: center;
+}
+%modal-dialog-pos {
+  position: relative;
+  z-index: 99;
+  height: auto;
+  margin: 12% auto;
+}

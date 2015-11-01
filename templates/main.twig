@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Bondzu | {% block title %} {% endblock title %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/keyframes.css">
+    <link rel="stylesheet" href="css/pageTransitions.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
+
+    <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="/static/js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    {% endblock head %}
+
+    <style>
+    #feedback {
+    padding: 0px 50px 0;
+    color: #fff;
+    height: 80px;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+    transform: translateY(-100px);
+    }
+
+    #feedback.success {
+    transform: translateY(-100px);
+    background: #53bbb4;
+    -webkit-animation: feedback-in .3s ease-in-out forwards, feedback-out .3s ease-in-out 5s forwards;
+    -moz-animation:    feedback-in .3s ease-in-out forwards, feedback-out .3s ease-in-out 5s forwards;
+    animation:         feedback-in .3s ease-in-out forwards, feedback-out .3s ease-in-out 5s forwards;
+    }
+
+    #feedback.fail {
+    transform: translateY(-100px);
+    background: #e15258;
+    -webkit-animation: feedback-in .3s ease-in-out forwards;
+    -moz-animation:    feedback-in .3s ease-in-out forwards;
+    animation:         feedback-in .3s ease-in-out forwards;
+    }
+
+    #feedback.dismissed {
+    transform: translateY(0);
+    -webkit-animation: feedback-out .3s ease-in-out forwards;
+    -moz-animation:    feedback-out .3s ease-in-out forwards;
+    animation:         feedback-out .3s ease-in-out forwards;
+    }
+
+    /*
+    ANIMATION
+    */
+
+    @-webkit-keyframes feedback-in {
+      0%   {
+        transform: translateY(-100px);
+      }
+      80% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(0);
+        padding-top: 0;
+      }
+    }
+    @-moz-keyframes feedback-in {
+      0%   {
+        transform: translateY(-100px);
+      }
+      80% {
+        transform: translateY(0);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(0);
+        padding-top: 0;
+      }
+    }
+    @keyframes feedback-in {
+      0%   {
+        transform: translateY(-100px);
+      }
+      80% {
+        transform: translateY(0);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(0);
+        padding-top: 0;
+      }
+    }
+
+    /* out*/
+
+    @-webkit-keyframes feedback-out {
+      0%   {
+        transform: translateY(0);
+      }
+      20% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(-100px);
+      }
+    }
+    @-moz-keyframes feedback-out {
+      0%   {
+        transform: translateY(0);
+      }
+      20% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(-100px);
+      }
+    }
+    @keyframes feedback-out {
+      0%   {
+        transform: translateY(0);
+      }
+      20% {
+        transform: translateY(0px);
+        padding-top: 5px;
+      }
+      100% {
+        transform: translateY(-100px);
+      }
+    }
+
+    </style>
+</head>
+<body>
+{% if flash is not empty %}
+  {% for key, msg in flash %}
+  <div id="feedback" class="{{key}}">
+    <a class="dismiss">Dismiss</a>
+    <!-- <h3>{{ key }}!</h3> -->
+    <p>{{ msg }} TEST</p>
+  </div>
+  {% endfor %}
+{% endif %}
+
+  <div id="main" class="m-scene">
+
+  <nav class="navbar nav-bar-transparent">
+  <div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ urlFor('home') }}">About</a></li>
+        <li><a href="{{ urlFor('login') }}">Log In</a></li>
+        <li><a href="{{ urlFor('signup') }}">Sign Up</a></li>
+        <li><a href="{{ urlFor('signup') }}">FAQS</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="home"></div>
+<!-- Animation class -->
+  <!-- Classes that define elment animations -->
+  <div class="scene_element scene_element--fadein">
+    {% block content %}
+    {% endblock content %}
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script src="js/jquery.smoothState.min.js"></script>
+<script src="js/functions.js"></script> -->
+</body>
+
+<footer>
+  {% block footer %}
+  {% endblock footer %}
+</footer>
+
+</html>

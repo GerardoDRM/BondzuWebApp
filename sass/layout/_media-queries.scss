@@ -1,0 +1,19 @@
+/**
+  * Media queries Partial SASS
+  * This SASS file has the break points
+  * for each media query used in the app
+  * !Important Sass extend cannot be used
+  * on media queries, just include and functions
+**/
+
+
+/*Media Queries*/
+// (max-width: 992)
+@include mq($brk-md) {
+
+}
+
+// (max-width: 768)
+@include mq($brk-sm-medium) {
+
+}

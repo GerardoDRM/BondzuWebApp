@@ -1,0 +1,48 @@
+/**
+  * BASE Partial SASS
+  * This SASS file has general components
+  * used on the app
+**/
+
+/*General*/
+html {
+  @extend %complete-dimension;
+  overflow: hidden;
+}
+
+body {
+  @extend %complete-dimension;
+}
+
+.home {
+  position: fixed;
+  top: -8%;
+  width: 100%;
+  height: 120%;
+  z-index: -9999;
+  background: linear-gradient(#FF9500, transparent 50%), linear-gradient(0deg, #FF5E3A, transparent),url("../images/home/home.jpg") no-repeat center top fixed;
+  @include background-size(cover);
+}
+
+.center-text {
+  @extend %center-items;
+}
+.pos-absolute {
+  position: absolute;
+}
+.no-padding {
+  @extend %no-padding;
+}
+
+.img-logo-form {
+  margin: 5% auto;
+  text-align: center;
+  display: block;
+}
+//
+a {
+  &:hover,&:link,&:visited,&:active {
+    text-decoration: none;
+    color: $white;
+  }
+}

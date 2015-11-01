@@ -1,0 +1,22 @@
+{% extends 'main.twig' %}
+
+{% block title %}
+  Sign up
+{% endblock title %}
+
+{% block content %}
+<div class="container" style="text-align=center;">
+<img src="images/home/logo_home.png" class="img-logo-form"/>
+  <form action="" method="post">
+        <fieldset>
+          <input class="form_input" name="name" type="text" placeholder="Name">
+          <input class="form_input" name="lastname" type="text" placeholder="Last Name">
+          <input class="form_input" name="email" type="email" placeholder="Email">
+          <input class="form_input" name="password" type="password" placeholder="Password">
+        </fieldset>
+        <input type="submit" class="btn-access access" value="Sign Up">
+      </form>
+    </main>
+</div>
+
+{% endblock content %}

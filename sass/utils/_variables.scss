@@ -1,0 +1,50 @@
+/**
+  * Variables Partial SASS
+  * This SASS file has the palette color
+  * the media queries break points and fonts attributes.
+**/
+
+// Basic colors
+$white: #FFF;
+$black: #000;
+$primary-color: #DA7416;
+$primary-color-transparent: rgba(#DA7416, 0.8);
+$primary-color-dark: #8a440b;
+$window-background: #F4F4F4;
+$color-accent: #bdda7416;
+$gray: #EBEBEB;
+$green-bondzu: #8BC34A;
+$facebook: #0B5998;
+$warning: #e15258;
+$primary-gray : #b7b7b7;
+
+
+// Asset paths
+$path-img-css: "../../img";
+
+// Media query break points
+
+$brk-xxlg: "(max-width: 1600px)";
+$brk-xlg: "(max-width: 1400px)";
+$brk-lg: "(max-width: 1200px)";
+$brk-lg-medium: "(max-width: 1000px)";
+$brk-md: "(max-width: 992px)";
+$brk-md-low: "(max-width: 800px)";
+$brk-sm-medium: "(max-width: 768px)";
+$brk-sm-medium__landscape: "(max-width: 768px) and (orientation: landscape)";
+$brk-sm: "(max-width: 600px)";
+$brk-xsm: "(max-width: 500px)";
+$brk-xxsm: "(max-width: 400px)";
+
+// Font stack
+$font-url--google: 'http://fonts.googleapis.com/css?family=Open+Sans';
+$font-family--primary: "Open Sans", sans-serif;
+
+// Font Weights
+$font-weight--thin: 100;
+$font-weight--light: 300;
+$font-weight--medium: 400;
+$font-weight--bold: 700;
+
+// Text Size
+$base__font-size: 16px;
