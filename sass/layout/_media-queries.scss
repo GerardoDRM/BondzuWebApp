@@ -9,6 +9,14 @@
 // (max-width: 992)
 @include mq($brk-md) {
 
+    .dl-menuwrapper {
+    li {
+      a {
+        display: none;
+      }
+    }
+  }
+
 }
 
 // (max-width: 768)
@@ -37,13 +45,6 @@
     }
   }
 
-  .dl-menuwrapper {
-    li {
-      a {
-        display: none;
-      }
-    }
-  }
 }
 
 // (max-width: 600)
