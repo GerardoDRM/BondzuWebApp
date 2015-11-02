@@ -36,11 +36,11 @@
         <div class="container-fluid">
           <div class="row">
             {% for animal in animals %}
-              <div class="col-sm-3">
+              <div class="col-sm-4 col-md-3">
                 <a href="{{ urlFor('animal', {"id": animal.id}) }}">
                   <div class="photo-container" style="background: url('{{ animal.profilePhoto }}')  no-repeat center top; background-size:cover;"></div>
                 </a>
-                <div class="card" style="height: 250px;">
+                <div class="card catalogue-wrapper" >
                   <h4>{{ animal.species}}</h4>
                   <h2>{{ animal.name }}</h2>
                   <p>{{ animal.about }}</p>
@@ -54,11 +54,11 @@
         <div class="container-fluid">
           <div class="row">
             {% for video in videos %}
-              <div class="col-sm-3">
+              <div class="col-sm-4 col-md-3">
                 <a class="thumbnail" id="{{ video.id }}">
               <div class="photo-container" style="background: url('http://img.youtube.com/vi/{{ video.id }}/hqdefault.jpg')  no-repeat center top; background-size:cover;"></div>
             </a>
-                <div class="card" style="height: 180px;">
+                <div class="card video-wrapper" >
                   <h2>{{ video.title}}</h4>
                   <h3>{{ video.description }}</h2>
                 </div>

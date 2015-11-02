@@ -473,4 +473,35 @@ fieldset {
   height: 100px;
   border-radius: 50%; }
 
+.catalogue-wrapper {
+  height: 350px; }
+
+.video-wrapper {
+  height: 250px; }
+
+/**
+  * Media queries Partial SASS
+  * This SASS file has the break points
+  * for each media query used in the app
+  * !Important Sass extend cannot be used
+  * on media queries, just include and functions
+**/
+/*Media Queries*/
+@media (max-width: 768px) {
+  form {
+    width: 65%; }
+
+  .cd-tabs-content li h2 {
+    font-size: 20px; }
+  .cd-tabs-content li p {
+    font-size: 1em; }
+  .cd-tabs-content li .product-card p {
+    font-size: 1em; }
+
+  .cd-tabs-navigation h1 {
+    font-size: 20px; }
+
+  .dl-menuwrapper li a {
+    display: none; } }
+
 /*# sourceMappingURL=main.css.map */

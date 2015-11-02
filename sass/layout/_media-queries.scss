@@ -5,8 +5,6 @@
   * !Important Sass extend cannot be used
   * on media queries, just include and functions
 **/
-
-
 /*Media Queries*/
 // (max-width: 992)
 @include mq($brk-md) {
@@ -15,5 +13,40 @@
 
 // (max-width: 768)
 @include mq($brk-sm-medium) {
+  form {
+    width: 65%;
+  }
+  .cd-tabs-content {
+    li {
+      h2 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 1em;
+      }
+      .product-card {
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+  .cd-tabs-navigation {
+    h1 {
+      font-size: 20px;
+    }
+  }
+
+  .dl-menuwrapper {
+    li {
+      a {
+        display: none;
+      }
+    }
+  }
+}
+
+// (max-width: 600)
+@include mq($brk-sm) {
 
 }

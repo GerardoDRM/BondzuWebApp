@@ -3,6 +3,7 @@ require 'vendor/autoload.php';
 require_once 'DBHandler/User.php';
 require_once 'DBHandler/Animal.php';
 require_once 'DBHandler/Camera.php';
+date_default_timezone_set('America/Los_Angeles');
 
 use Parse\ParseClient;
 use Parse\ParseObject;
